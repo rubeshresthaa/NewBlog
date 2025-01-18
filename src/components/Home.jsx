@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import appWriteService from "../appwrite/dataConfig"
 import Container from "./container/Container";
 import PostCard from "./PostCard";
@@ -11,7 +11,7 @@ const Home = () => {
       setPosts(posts.documents)
      }
     })
-  },[posts])
+  },[])
   if(posts===0){
     return(
       <div className="w-full py-8 mt-4 text-center">
@@ -30,10 +30,10 @@ const Home = () => {
   return (
     <div className="py-8 w-full">
       <Container>
-      <div className="felx flex-wrap"> 
+      <div className="flex flex-wrap"> 
         {posts.map((post)=>(
           <div key={post.$id} className="p-2 w-1/4">
-            <PostCard post={post} />
+            <PostCard {...post} />
           </div>
         ))}
       </div>
