@@ -1,6 +1,6 @@
 import authService from "../../appwrite/auth";
-import {Input} from "../Headers/Input";
-import {Button} from "../Headers/Button"
+import Input from "../Headers/Input";
+import Button from "../Headers/Button"
 import { useDispatch } from "react-redux";
 import { Link,useNavigate } from "react-router-dom";
 import { login } from "../../features/authSlice";
@@ -15,9 +15,11 @@ const SignUp = () => {
   const nav=useNavigate()
 
   const signUp=async(data)=>{
+    console.log("Data being sent:", data);
     setError("");
     try {
       const createAccount=await authService.createAccount(data);
+     
       if(createAccount){
         if(createAccount){
           const userData=await authService.getAccount()
@@ -69,7 +71,7 @@ const SignUp = () => {
 
 
       </form>
-      <p>Already have an account? <Link to="/login" className="font-medium text-pretty hover:underline duration-200 transition-all" >Login</Link></p>
+      <p>Already have an account? <Link to="/login" className="font-medium text-pretty hover:underline duration-200 transition-all text-blue-700" >Login</Link></p>
       {error && <p className="text-red-600 text-center">{error}</p>}
       </div>
 

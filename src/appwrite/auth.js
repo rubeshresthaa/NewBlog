@@ -8,6 +8,7 @@ account;
 constructor(){
   this.client.setEndpoint(conf.appwriteURL).setProject(conf.appwriteProjectId)
   this.account=new Account(this.client)
+  console.log(conf.appwriteURL, conf.appwriteProjectId )
 }
 
 //For Creating Account

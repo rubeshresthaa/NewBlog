@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Container from "../container/Container";
 import Button from "../Headers/Button";
-
+import parse from "html-react-parser"
 const Post = () => {
   const [post,setPost]=useState(null)
   const {slug}=useParams();
@@ -61,7 +61,7 @@ const Post = () => {
         {post.title}
       </h1>
     </div>
-    <div className="browser-css">{parse({post.content})}</div>
+    <div className="browser-css">{parse(post.content)}</div>
       </Container>
     </div>
   ) : null 

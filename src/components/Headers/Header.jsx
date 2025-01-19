@@ -42,15 +42,20 @@ const Header = () => {
             <h1 onClick={()=>nav('/')}>New Project</h1>
           </div>
           <ul className="flex ml-auto">
-            {navItems.map((items)=>
-            {items.active ? (
-              <li key={items.name}>
-                <button onClick={()=>nav(items.slug)}
-                  className="inline-block px-6 py-2 duration-200 hover:bg-blue-400 rounded-full">{items.name}</button>
-              </li>
-              
-            ):null }
-            )}
+          {navItems.map((item) => {
+  return (
+    item.active && (
+      <li key={item.name}>
+        <button
+          onClick={() => nav(item.slug)}
+          className="inline-block px-6 py-2 duration-200 hover:bg-blue-400 rounded-full"
+        >
+          {item.name}
+        </button>
+      </li>
+    )
+  );
+})}
             {authStatus && (
               <li>
                 <LogoutBtn />

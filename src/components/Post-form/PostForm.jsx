@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import authService from "../../appwrite/dataConfig"
-import {Button} from "../Headers/Button";
-import {Input} from "../Headers/Input";
-import {Select} from "../Select";
+import Button from "../Headers/Button";
+import Input from "../Headers/Input";
+import Select from "../Select";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import RTE from "../RTE";
@@ -117,7 +117,7 @@ const PostForm = ({post}) => {
       options={["active","inactive"]}
       label="Status:"
       className="mb-4"
-      {...register("status"),{required:true}}
+      {...register("status",{required:true})}
       />
   <Button type="submit"
   bgColor={post ? "bg-green-500" :undefined}

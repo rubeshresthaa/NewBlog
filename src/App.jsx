@@ -4,6 +4,7 @@ import authService from './appwrite/auth'
 import { login, logout } from './features/authSlice'
 import Header from "./components/Headers/Header";
 import Footer from "./components/Footer/Footer";
+import { Outlet } from "react-router-dom";
 
 
 function App() {
@@ -37,7 +38,8 @@ if(loading){
   return (
     <div>
       <Header />
-      <Footer />
+      <Outlet />
+      
     </div>
   )
 }
